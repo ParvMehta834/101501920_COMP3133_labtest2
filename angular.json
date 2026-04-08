@@ -18,21 +18,17 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/101501920-lab-test2-comp3133",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": ["src/material-theme.scss", "src/styles.css"],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": [
+              "src/material-theme.scss",
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
