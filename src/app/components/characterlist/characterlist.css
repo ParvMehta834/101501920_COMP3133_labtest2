@@ -1,0 +1,145 @@
+.hero-section {
+  margin-bottom: 24px;
+}
+
+.hero-section h1 {
+  margin: 0 0 8px;
+  font-size: 44px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.hero-section p {
+  margin: 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.filter-panel {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  margin-bottom: 24px;
+}
+
+.search-field {
+  min-width: 280px;
+  width: 320px;
+}
+
+.results-bar {
+  margin-bottom: 18px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.16);
+}
+
+.image-wrapper {
+  overflow: hidden;
+}
+
+.character-card img {
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.character-card:hover img {
+  transform: scale(1.04);
+}
+
+.card-content {
+  padding-top: 12px;
+}
+
+.card-content h2 {
+  margin-bottom: 14px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111827;
+}
+
+.house-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.house-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+}
+
+.gryffindor {
+  background: #b91c1c;
+}
+
+.slytherin {
+  background: #15803d;
+}
+
+.ravenclaw {
+  background: #1d4ed8;
+}
+
+.hufflepuff {
+  background: #ca8a04;
+}
+
+.no-house {
+  background: #6b7280;
+}
+
+.card-actions {
+  margin-top: auto;
+  padding: 0 16px 16px 16px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 700;
+}

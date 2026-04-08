@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" class="filter-field">
+  <mat-label>Filter by House</mat-label>
+  <mat-select [formControl]="houseControl">
+    @for (house of houses; track house) {
+      <mat-option [value]="house">{{ house }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>

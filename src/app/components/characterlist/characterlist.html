@@ -1,0 +1,72 @@
+<section class="hero-section">
+  <h1>Harry Potter Characters</h1>
+  <p>Explore magical characters, filter them by house, and open detailed profiles.</p>
+</section>
+
+<section class="filter-panel">
+  <div class="filter-left">
+    <app-characterfilter (houseSelected)="onHouseSelected($event)"></app-characterfilter>
+  </div>
+
+  <div class="filter-right">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search by character name</mat-label>
+      <input
+        matInput
+        #searchBox
+        (input)="onSearchChange(searchBox.value)"
+        placeholder="Type a name..."
+      />
+    </mat-form-field>
+  </div>
+</section>
+
+@if (loading()) {
+  <div class="center">
+    <mat-spinner></mat-spinner>
+  </div>
+} @else if (errorMessage()) {
+  <p class="error">{{ errorMessage() }}</p>
+} @else {
+  <div class="results-bar">
+    <p>
+      Showing <strong>{{ getFilteredCharacters().length }}</strong> characters
+      @if (selectedHouse() !== 'All') {
+        <span> • House: <strong>{{ selectedHouse() }}</strong></span>
+      }
+    </p>
+  </div>
+
+  <div class="card-grid">
+    @for (character of getFilteredCharacters(); track character.id) {
+      <mat-card class="character-card">
+        <div class="image-wrapper">
+          <img
+            mat-card-image
+            [src]="character.image || 'https://placehold.co/400x500?text=No+Image'"
+            [alt]="character.name || 'Character image'"
+          />
+        </div>
+
+        <mat-card-content class="card-content">
+          <h2>{{ character.name }}</h2>
+
+          <div class="house-row">
+            <span class="label">House:</span>
+            <span class="house-badge" [ngClass]="getHouseClass(character.house)">
+              {{ character.house || 'No House' }}
+            </span>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="card-actions">
+          <a mat-raised-button color="primary" [routerLink]="['/character', character.id]">
+            View Details
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    } @empty {
+      <p>No characters found.</p>
+    }
+  </div>
+}

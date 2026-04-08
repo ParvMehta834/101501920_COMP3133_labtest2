@@ -1,0 +1,49 @@
+@if (loading()) {
+  <div class="center">
+    <mat-spinner></mat-spinner>
+  </div>
+} @else if (errorMessage()) {
+  <p class="error">{{ errorMessage() }}</p>
+  <a mat-button routerLink="/">Back</a>
+} @else if (character()) {
+  <div class="details-wrapper">
+    <mat-card class="details-card">
+      <div class="details-layout">
+        <div class="details-image">
+          <img
+            [src]="character()!.image || 'https://placehold.co/500x650?text=No+Image'"
+            [alt]="character()!.name || 'Character image'"
+          />
+        </div>
+
+        <div class="details-content">
+          <h1>{{ character()!.name }}</h1>
+
+          <section class="info-section">
+            <h3>Basic Info</h3>
+            <p><strong>Species:</strong> {{ character()!.species || 'Unknown' }}</p>
+            <p><strong>House:</strong> {{ character()!.house || 'No House' }}</p>
+            <p><strong>Actor:</strong> {{ character()!.actor || 'Unknown' }}</p>
+          </section>
+
+          <section class="info-section">
+            <h3>Magic Info</h3>
+            <p><strong>Wizard:</strong> {{ character()!.wizard ? 'Yes' : 'No' }}</p>
+            <p><strong>Ancestry:</strong> {{ character()!.ancestry || 'Unknown' }}</p>
+          </section>
+
+          <section class="info-section">
+            <h3>Wand</h3>
+            <p><strong>Wood:</strong> {{ character()!.wand.wood || 'Unknown' }}</p>
+            <p><strong>Core:</strong> {{ character()!.wand.core || 'Unknown' }}</p>
+            <p><strong>Length:</strong> {{ character()!.wand.length || 'Unknown' }}</p>
+          </section>
+
+          <div class="details-actions">
+            <a mat-raised-button color="primary" routerLink="/">Back to List</a>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+}
